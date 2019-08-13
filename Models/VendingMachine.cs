@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Vendor.Interfaces;
 
@@ -12,6 +13,8 @@ namespace Vendor.Models
     public void AddMoney(decimal amount)
     {
       //NOTE We define the logic within this class that's implementing the interface
+      TransactionBalance += amount;
+      Console.WriteLine($"your current balance is {TransactionBalance}");
     }
 
     public void ListAvailableProducts()

@@ -6,6 +6,7 @@ namespace Vendor
   public class App
   {
     public VendingMachine myMachine { get; set; }
+    Boolean active = true;
     public void Setup()
     {
       //NOTE instantiate our data for the application
@@ -35,23 +36,34 @@ namespace Vendor
       // 1a. View all products
       // 1aa. Purchase product
       //1b. add money
-
+      while (active)
+      {
+        Menu();
+      }
     }
 
     public void Menu()
     {
-      Console.WriteLine("Hello Human!\n\r1) View Products \n\r2) Purchase\n\r3) Leave me forever");
-      bool isValid = false;
-      string userString = "";
-      while (!isValid)
+      Console.WriteLine("Hello Human!\n\r1) View Products \n\r2) Purchase\n\r3) Add a Quarter\n\r4) Leave me forever");
+
+      string userString = Console.ReadLine();
+      switch (userString)
       {
-        userString = Console.ReadLine();
-        switch (userString)
-        {
-          case "1":
-            myMachine.ListAvailableProducts();
-            break;
-        }
+        case "1":
+          myMachine.ListAvailableProducts();
+          break;
+        case "2":
+          myMachine.PurchaseProduct();
+          break;
+        case "3":
+          myMachine.AddMoney(0.25m);
+          break;
+        case "4":
+          active = false;
+          break;
+        default:
+          Console.WriteLine("Invalid Selection");
+          break;
 
       }
 
