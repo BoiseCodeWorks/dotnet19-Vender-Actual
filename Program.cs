@@ -11,7 +11,7 @@ namespace Vendor
       //   Console.WriteLine("Hello World!");
       App app = new App();
       app.Setup();
-
+      // Product example = new Product(); //NOTE We can never have an instantiated Product because of the abstract
     }
   }
 }

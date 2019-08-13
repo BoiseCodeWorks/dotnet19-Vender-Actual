@@ -75,7 +75,7 @@ namespace Vendor.Models
         productToPurchase.Quantity--;
 
         TotalBalance += productToPurchase.Price;
-
+        System.Console.WriteLine($"Enjoy your {productToPurchase.Name}");
       }
 
 
