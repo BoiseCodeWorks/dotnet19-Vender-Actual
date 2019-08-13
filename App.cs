@@ -1,9 +1,11 @@
 using Vendor.Models;
+using System;
 
 namespace Vendor
 {
   public class App
   {
+    public VendingMachine myMachine { get; set; }
     public void Setup()
     {
       //NOTE instantiate our data for the application
@@ -13,15 +15,15 @@ namespace Vendor
       Drink sprite = new Drink(7, "Sprite", 1.50m, 20);
       Drink tea = new Drink(7, "Yerba Mate", 3.50m, 12);
       Drink oj = new Drink(7, "Orange Juice", 2.00m, 16);
-      VendingMachine vm = new VendingMachine(25.00m);
+      myMachine = new VendingMachine(25.00m);
 
       // NOTE add the products to the vending machine
-      vm.AddProduct(ntrBtr); //NOTE might have to specify to add this Food as a Product
-      vm.AddProduct(noodles);
-      vm.AddProduct(butterFinger);
-      vm.AddProduct(sprite);
-      vm.AddProduct(tea);
-      vm.AddProduct(oj);
+      myMachine.AddProduct(ntrBtr); //NOTE might have to specify to add this Food as a Product
+      myMachine.AddProduct(noodles);
+      myMachine.AddProduct(butterFinger);
+      myMachine.AddProduct(sprite);
+      myMachine.AddProduct(tea);
+      myMachine.AddProduct(oj);
 
       Run();
     }
@@ -33,6 +35,25 @@ namespace Vendor
       // 1a. View all products
       // 1aa. Purchase product
       //1b. add money
+
+    }
+
+    public void Menu()
+    {
+      Console.WriteLine("Hello Human!\n\r1) View Products \n\r2) Purchase\n\r3) Leave me forever");
+      bool isValid = false;
+      string userString = "";
+      while (!isValid)
+      {
+        userString = Console.ReadLine();
+        switch (userString)
+        {
+          case "1":
+            myMachine.ListAvailableProducts();
+            break;
+        }
+
+      }
 
     }
   }
