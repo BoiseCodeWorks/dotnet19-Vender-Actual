@@ -1,14 +1,15 @@
+using System.Collections.Generic;
 using Vendor.Interfaces;
 
 namespace Vendor.Models
 {
   public class VendingMachine : IVendingMachine
   {
-    public int TransactionBalance { get; set; }
-    public int TotalBalance { get; set; }
-    public System.Collections.Generic.List<Product> Products { get; set; }
+    public decimal TransactionBalance { get; set; }
+    public decimal TotalBalance { get; set; }
+    public List<Product> Products { get; set; }
 
-    public void AddMoney(int amount)
+    public void AddMoney(decimal amount)
     {
       //NOTE We define the logic within this class that's implementing the interface
     }
@@ -16,6 +17,18 @@ namespace Vendor.Models
     public void ListAvailableProducts()
     {
 
+    }
+
+    public void AddProduct(Product productToAdd)
+    {
+      Products.Add(productToAdd);
+    }
+
+    public VendingMachine(decimal total)
+    {
+      TransactionBalance = 0;
+      TotalBalance = total;
+      Products = new List<Product>();
     }
   }
 }
