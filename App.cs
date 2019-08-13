@@ -10,12 +10,12 @@ namespace Vendor
     public void Setup()
     {
       //NOTE instantiate our data for the application
-      Food ntrBtr = new Food(8, "Nutter Butter", 1.75m);
-      Food noodles = new Food(3, "Cup of Noodles", 1.00m);
-      Food butterFinger = new Food(3, "Butter Finger", 2.00m);
-      Drink sprite = new Drink(7, "Sprite", 1.50m, 20);
-      Drink tea = new Drink(7, "Yerba Mate", 3.50m, 12);
-      Drink oj = new Drink(7, "Orange Juice", 2.00m, 16);
+      Food ntrBtr = new Food("A1", 8, "Nutter Butter", 1.75m);
+      Food noodles = new Food("A2", 3, "Cup of Noodles", 1.00m);
+      Food butterFinger = new Food("A3", 3, "Butter Finger", 2.00m);
+      Drink sprite = new Drink("B1", 7, "Sprite", 1.50m, 20);
+      Drink tea = new Drink("B2", 7, "Yerba Mate", 3.50m, 12);
+      Drink oj = new Drink("B3", 7, "Orange Juice", 2.00m, 16);
       myMachine = new VendingMachine(25.00m);
 
       // NOTE add the products to the vending machine
@@ -53,7 +53,7 @@ namespace Vendor
           myMachine.ListAvailableProducts();
           break;
         case "2":
-          myMachine.PurchaseProduct();
+          // myMachine.PurchaseProduct();
           break;
         case "3":
           myMachine.AddMoney(0.25m);
