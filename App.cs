@@ -53,7 +53,7 @@ namespace Vendor
           myMachine.ListAvailableProducts();
           break;
         case "2":
-          // myMachine.PurchaseProduct();
+          myMachine.PurchaseProduct();
           break;
         case "3":
           myMachine.AddMoney(0.25m);

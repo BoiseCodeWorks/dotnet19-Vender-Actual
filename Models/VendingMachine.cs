@@ -43,5 +43,12 @@ namespace Vendor.Models
       TotalBalance = total;
       Products = new List<Product>();
     }
+
+    public void PurchaseProduct()
+    {
+      Console.WriteLine("Enter location:");
+      string userChoice = Console.ReadLine();
+      Product productToPurchase = Products.Find(p => p.Location == userChoice.ToUpper());
+    }
   }
 }
