@@ -49,6 +49,36 @@ namespace Vendor.Models
       Console.WriteLine("Enter location:");
       string userChoice = Console.ReadLine();
       Product productToPurchase = Products.Find(p => p.Location == userChoice.ToUpper());
+      if (productToPurchase == null)
+      {
+        System.Console.WriteLine("Invalid location");
+      }
+      else
+      {
+        //1. Enough money to buy?
+        //2. is Availble
+        //3. if 1 and 2 then subtract productPrice from TransactionBalance and decrement product quantity
+
+        if (TransactionBalance < productToPurchase.Price)
+        {
+          System.Console.WriteLine("Insufficient funds");
+          return;
+        }
+
+        if (!productToPurchase.Available)
+        {
+          System.Console.WriteLine(" Product not available");
+          return;
+        }
+
+        TransactionBalance -= productToPurchase.Price;
+        productToPurchase.Quantity--;
+
+        TotalBalance += productToPurchase.Price;
+
+      }
+
+
     }
   }
 }
